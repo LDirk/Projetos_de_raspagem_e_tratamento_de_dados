@@ -13,6 +13,7 @@ if req.status_code == 200:
 soup = BeautifulSoup(content, 'html.parser')
 table = soup.find_all(name='table') 
 
+table_str = str(table)
 df = pd.read_html(table_str)[0]
 
 
