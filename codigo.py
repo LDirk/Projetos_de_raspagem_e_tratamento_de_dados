@@ -34,3 +34,5 @@ df = df.rename(columns={'SG': 'Saldo de Gols'})
 
 
 print(df)
+
+df.to_csv('file.csv')
