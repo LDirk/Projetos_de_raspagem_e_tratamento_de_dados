@@ -1,0 +1,38 @@
+import pandas as pd  
+import requests
+from bs4 import BeautifulSoup 
+
+profissao = str(input("Digite o cargo procurado: "))
+
+req = requests.get("https://www.vagas.com.br/vagas-de-"+profissao)
+
+if req.status_code == 200:
+  print("A requesição foi um sucesso")
+else:
+  print("A requisição não foi bem sucedida
+  
+ 
+content = req.content
+
+soup = BeautifulSoup(content, 'html.parser')
+
+vagas = (soup.find_all(class_="link-detalhes-vaga"))
+
+lista = [] 
+
+for vaga in vagas:
+  lista.append(vaga.get_text())
+titulos = [] 
+
+for x in lista:
+    item = x
+    for y in ['\n', '\t', '/', '.', '-', '(', ')']:
+        item = item.replace(y, "")
+    titulos.append(item)
+
+titulos2 = []
+for titulo in titulos:
+  titulos2.append(titulo.strip())
+
+# Titulos 2 é a variavel com os nomes das vagas em aberto. 
+print(titulos2)
