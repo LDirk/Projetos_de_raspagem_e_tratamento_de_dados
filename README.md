@@ -1,1 +1,1 @@
-Repositórios para guardar códigos de Web Scraping, tratamento de dados, análises, etc. 
+# Repositório para guardar códigos de raspagens de dados. 
